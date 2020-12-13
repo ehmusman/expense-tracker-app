@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import classnames from 'classnames';
-
+import { v1 as uuid } from 'uuid';
+import TransactionContext from '../context/transactionContext'
 
 
 function AddTransaction() {
+
+    const { addTransaction } = useContext(TransactionContext)
+
     const [toggle, setToggle] = useState(true)
     const [itemName, setItemName] = useState('')
     const [income, setIncome] = useState(0);
@@ -11,6 +15,25 @@ function AddTransaction() {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        let data = {}
+        if (income === 0) {
+            data = {
+                id: uuid(),
+                text: itemName,
+                amount: -expense
+            }
+        } else if (expense === 0) {
+            data = {
+                id: uuid(),
+                text: itemName,
+                amount: +income
+            }
+        }
+        addTransaction(data)
+
+        setItemName('')
+        setIncome(0)
+        setExpense(0)
     }
     const handleToggle = (e) => {
         e.preventDefault()

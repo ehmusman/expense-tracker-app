@@ -2,7 +2,7 @@
 import React, { useReducer } from 'react';
 import TransactionContext from './transactionContext';
 import TransactionReducer from './transactionReducer'
-
+import { ADD_TRANSACTION } from './types'
 
 const TransactionState = (props) => {
     const initialState = {
@@ -13,12 +13,21 @@ const TransactionState = (props) => {
             { id: 4, text: 'Camera', amount: 150 }
         ]
     }
+
+    const addTransaction = (data) => {
+        dispatch({
+            type: ADD_TRANSACTION,
+            payload: data
+        })
+
+    }
     const [state, dispatch] = useReducer(TransactionReducer, initialState)
 
 
     return <TransactionContext.Provider
         value={{
-            transactions: state.transactions
+            transactions: state.transactions,
+            addTransaction
         }}>
         {props.children}
     </TransactionContext.Provider>
