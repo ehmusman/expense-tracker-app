@@ -5,10 +5,15 @@ import classnames from 'classnames';
 
 function AddTransaction() {
     const [toggle, setToggle] = useState(true)
+    const [itemName, setItemName] = useState('')
 
     const handleToggle = (e) => {
         e.preventDefault()
         setToggle(!toggle)
+    }
+
+    const onItemNameChange = (e) => {
+        setItemName(e.target.value)
     }
     return (
         <form className='pl-3 my-3 py-3'>
@@ -35,6 +40,8 @@ function AddTransaction() {
                     className='form-control'
                     type="text"
                     placeholder='Item name....'
+                    value={itemName}
+                    onChange={onItemNameChange}
                 />
             </div>
             {toggle ? (
@@ -44,7 +51,7 @@ function AddTransaction() {
                         htmlFor="amount"
                         className='h5'>
                         Amount
-    </label>
+                </label>
                     <input
                         className='form-control'
                         type="number"
