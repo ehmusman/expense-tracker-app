@@ -1,4 +1,3 @@
-import AddTransaction from '../components/AddTransaction';
 import { ADD_TRANSACTION } from './types'
 
 const TransactionReducer = (state, action) => {
