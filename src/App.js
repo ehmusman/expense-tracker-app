@@ -16,8 +16,10 @@ function App() {
         <Balance />
         <hr />
         <ExpenseIncome />
-        <History />
+        <hr />
         <AddTransaction />
+        <hr />
+        <History />
       </div>
     </TransactionState>
   );

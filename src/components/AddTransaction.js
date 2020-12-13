@@ -35,14 +35,15 @@ function AddTransaction() {
         setIncome(0)
         setExpense(0)
     }
-    const handleToggle = (e) => {
+    const handleIncomeToggle = (e) => {
         e.preventDefault()
-        setToggle(!toggle)
-        if (toggle === true) {
-            setIncome(0)
-        } else if (toggle === false) {
-            setExpense(0)
-        }
+        setToggle(true)
+        setIncome(0)
+    }
+    const handleExpenseToggle = (e) => {
+        e.preventDefault()
+        setToggle(false)
+        setExpense(0)
     }
 
     const onItemNameChange = (e) => {
@@ -58,18 +59,18 @@ function AddTransaction() {
     return (
         <form className='pl-3 my-3 py-3' onSubmit={onSubmit}>
             <h3 classnames='text-center' >Select the Category First</h3>
-            <div className='row'>
-                <button className={classnames('col-md-6 btn btn-outline-primary btn-lg', {
+            <div className='row justify-content-around'>
+                <button className={classnames('col-md-3 btn btn-outline-primary btn-lg', {
                     "active": toggle
                 })}
-                    onClick={handleToggle}
+                    onClick={handleIncomeToggle}
                 >
                     Income
                     </button>
-                <button className={classnames('col-md-6 btn btn-outline-primary btn-lg', {
+                <button className={classnames('col-md-3 btn btn-outline-primary btn-lg', {
                     "active": !toggle
                 })}
-                    onClick={handleToggle}
+                    onClick={handleExpenseToggle}
                 >
                     Expense</button>
             </div>
