@@ -6,17 +6,34 @@ import classnames from 'classnames';
 function AddTransaction() {
     const [toggle, setToggle] = useState(true)
     const [itemName, setItemName] = useState('')
+    const [income, setIncome] = useState(0);
+    const [expense, setExpense] = useState(0);
 
+    const onSubmit = (e) => {
+        e.preventDefault()
+    }
     const handleToggle = (e) => {
         e.preventDefault()
         setToggle(!toggle)
+        if (toggle === true) {
+            setIncome(0)
+        } else if (toggle === false) {
+            setExpense(0)
+        }
     }
 
     const onItemNameChange = (e) => {
         setItemName(e.target.value)
     }
+    const onIncomeChange = (e) => {
+        setIncome(e.target.value)
+
+    }
+    const onExpenseChange = (e) => {
+        setExpense(e.target.value)
+    }
     return (
-        <form className='pl-3 my-3 py-3'>
+        <form className='pl-3 my-3 py-3' onSubmit={onSubmit}>
             <h3 classnames='text-center' >Select the Category First</h3>
             <div className='row'>
                 <button className={classnames('col-md-6 btn btn-outline-primary btn-lg', {
@@ -56,7 +73,8 @@ function AddTransaction() {
                         className='form-control'
                         type="number"
                         placeholder='Income Amount....'
-
+                        value={income}
+                        onChange={onIncomeChange}
                     />
                 </div>
             ) :
@@ -70,7 +88,8 @@ function AddTransaction() {
                         className='form-control'
                         type="number"
                         placeholder='Expense  Amount....'
-
+                        value={expense}
+                        onChange={onExpenseChange}
                     />
                 </div>}
             <input type="submit" value="Add Transaction" className='btn btn-primary btn-block btn-lg' />
