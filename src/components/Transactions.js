@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
+import classnames from 'classnames';
 
-function Transactions() {
+const Transactions = ({ text, amount }) => {
+
     return (
-        <li className='list-group-item d-flex justify-content-between'>
-            <h4>
-                wertyu ertyui
-            </h4>
-            <h4>
-                ertyui ertyui
-            </h4>
-            <h4 className='cross' style={{ color: 'red', fontSize: 'bold', cursor: 'pointer' }}>X</h4>
+        <li className={classnames('list-group-item mb-2 d-flex justify-content-between border border-success', {
+            'border border-danger': amount < 0
+        })}>
+            <h4> {text}</h4>
+            <h4>{amount}</h4>
+            <h4 className='cross' style={{ color: 'red', fontSize: 'bold', cursor: 'pointer' }}> <i className="fas fa-times"></i> </h4>
         </li>
     )
 }
 
-export default Transactions
+export default Transactions;

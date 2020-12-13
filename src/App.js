@@ -13,7 +13,9 @@ function App() {
     <TransactionState >
       <div className='container card p-3'>
         <Header />
+        <hr />
         <Balance />
+        <hr />
         <ExpenseIncome />
         <History />
         <Transactions />
