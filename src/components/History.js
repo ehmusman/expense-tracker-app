@@ -20,7 +20,6 @@ function History() {
                         text={transaction.text}
                         amount={transaction.amount}
                     />
-
                 )}
             </ul>
         </div>

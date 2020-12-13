@@ -12,7 +12,7 @@ function AddTransaction() {
     }
     return (
         <form className='pl-3 my-3 py-3'>
-            <h3>Select the Category First</h3>
+            <h3 classnames='text-center' >Select the Category First</h3>
             <div className='row'>
                 <button className={classnames('col-md-6 btn btn-outline-primary btn-lg', {
                     "active": toggle

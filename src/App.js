@@ -5,7 +5,6 @@ import Balance from './components/Balance'
 import ExpenseIncome from './components/ExpenseIncome';
 import Header from './components/Header';
 import History from './components/History';
-import Transactions from './components/Transactions';
 import TransactionState from './context/TransactionState';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <hr />
         <ExpenseIncome />
         <History />
-        <Transactions />
         <AddTransaction />
       </div>
     </TransactionState>
