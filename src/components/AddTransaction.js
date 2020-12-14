@@ -29,7 +29,10 @@ function AddTransaction() {
                 amount: +income
             }
         }
-        addTransaction(data)
+        if ((income !== '' && itemName !== '') || (expense !== '' && itemName !== '')) {
+            addTransaction(data)
+        }
+
 
         setItemName('')
         setIncome(0)
