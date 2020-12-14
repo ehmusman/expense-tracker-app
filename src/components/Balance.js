@@ -9,7 +9,7 @@ function Balance() {
     return (
         <div className=' px-3 card-title d-flex flex-column '>
             <p className='h3'>Balance is</p>
-            <span className='h4'>$ {amount.reduce((a, b) => a + b)}</span>
+            <span className='h4'>$ {amount.length !== 0 && amount.reduce((a, b) => a + b)}</span>
         </div>
     )
 }

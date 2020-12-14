@@ -13,15 +13,16 @@ function ExpenseIncome() {
             expense.push(value)
         }
     })
+    console.log(income, expense)
     return (
         <div className='row px-3'>
             <div className="col-6">
                 <h3>Income is</h3>
-                <h4 className="text-success">$ {income.reduce((a, b) => a + b)} </h4>
+                <h4 className="text-success">$ {income.length !== 0 && income.reduce((a, b) => a + b)} </h4>
             </div>
             <div className="col-6">
                 <h3>Expense Is</h3>
-                <h4 className="text-danger">$ {expense.reduce((a, b) => a + b)}</h4>
+                <h4 className="text-danger">$ {expense.length !== 0 && expense.reduce((a, b) => a + b)}</h4>
             </div>
         </div>
     )

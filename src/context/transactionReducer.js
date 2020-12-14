@@ -1,4 +1,4 @@
-import { ADD_TRANSACTION } from './types'
+import { ADD_TRANSACTION, DELETE_TRANSACTION } from './types'
 
 const TransactionReducer = (state, action) => {
     switch (action.type) {
@@ -6,6 +6,11 @@ const TransactionReducer = (state, action) => {
             return {
                 ...state,
                 transactions: [...state.transactions, action.payload]
+            }
+        case DELETE_TRANSACTION:
+            return {
+                ...state,
+                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
             }
         default:
             return state

@@ -19,25 +19,26 @@ function History() {
 
             <hr />
 
-            {showHistory ? (
-                <Fragment>
-                    <div className="d-flex justify-content-between mb-0">
-                        <h3>Item</h3>
-                        <h3>Amount</h3>
-                        <h3> </h3>
-                    </div>
-                    <ul className="list-group mb-3">
-                        {transactions.map(transaction =>
-                            <Transactions
-                                key={transaction.id}
-                                text={transaction.text}
-                                amount={transaction.amount}
-                            />
-                        )}
-                    </ul>
-                </Fragment>
-            ) :
-                null}
+            {/* {showHistory ? ( */}
+            <Fragment>
+                <div className="d-flex justify-content-between mb-0">
+                    <h3>Item</h3>
+                    <h3>Amount</h3>
+                    <h3> </h3>
+                </div>
+                <ul className="list-group mb-3">
+                    {transactions.map(transaction =>
+                        <Transactions
+                            key={transaction.id}
+                            text={transaction.text}
+                            amount={transaction.amount}
+                            id={transaction.id}
+                        />
+                    )}
+                </ul>
+            </Fragment>
+            {/* ) :
+                null} */}
 
         </div>
     )
