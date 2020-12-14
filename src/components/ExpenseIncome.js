@@ -13,7 +13,6 @@ function ExpenseIncome() {
             expense.push(value)
         }
     })
-    console.log(income, expense)
     return (
         <div className='row px-3'>
             <div className="col-6">
