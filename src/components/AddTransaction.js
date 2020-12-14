@@ -10,19 +10,19 @@ function AddTransaction() {
 
     const [toggle, setToggle] = useState(true)
     const [itemName, setItemName] = useState('')
-    const [income, setIncome] = useState(0);
-    const [expense, setExpense] = useState(0);
+    const [income, setIncome] = useState('');
+    const [expense, setExpense] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault()
         let data = {}
-        if (income === 0) {
+        if (income === '') {
             data = {
                 id: uuid(),
                 text: itemName,
                 amount: -expense
             }
-        } else if (expense === 0) {
+        } else if (expense === '') {
             data = {
                 id: uuid(),
                 text: itemName,
@@ -35,18 +35,18 @@ function AddTransaction() {
 
 
         setItemName('')
-        setIncome(0)
-        setExpense(0)
+        setIncome('')
+        setExpense('')
     }
     const handleIncomeToggle = (e) => {
         e.preventDefault()
         setToggle(true)
-        setIncome(0)
+        setIncome('')
     }
     const handleExpenseToggle = (e) => {
         e.preventDefault()
         setToggle(false)
-        setExpense(0)
+        setExpense('')
     }
 
     const onItemNameChange = (e) => {
