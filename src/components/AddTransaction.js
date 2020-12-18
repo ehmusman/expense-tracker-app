@@ -20,13 +20,13 @@ function AddTransaction() {
             data = {
                 id: uuid(),
                 text: itemName,
-                amount: -Math.absolute(expense)
+                amount: -Math.abs(expense)
             }
         } else if (expense === '') {
             data = {
                 id: uuid(),
                 text: itemName,
-                amount: +Math.absolute(income)
+                amount: +Math.abs(income)
             }
         }
         if ((income !== '' && itemName !== '') || (expense !== '' && itemName !== '')) {
@@ -121,7 +121,7 @@ function AddTransaction() {
                         />
                     </div>}
             </div>
-            <input type="submit" value="Add Transaction" className='btn btn-primary btn-block w-50% btn-lg' />
+            <input type="submit" value="Add Transaction" className='btn btn-primary mx-auto' />
         </form>
     )
 }
