@@ -20,13 +20,13 @@ function AddTransaction() {
             data = {
                 id: uuid(),
                 text: itemName,
-                amount: -expense
+                amount: -Math.absolute(expense)
             }
         } else if (expense === '') {
             data = {
                 id: uuid(),
                 text: itemName,
-                amount: +income
+                amount: +Math.absolute(income)
             }
         }
         if ((income !== '' && itemName !== '') || (expense !== '' && itemName !== '')) {
@@ -78,48 +78,50 @@ function AddTransaction() {
                     Expense</button>
             </div>
             <h2 >Add Transaction</h2>
-            <div className="form-group ">
-                <label htmlFor="item-name" className='h5'>Item Name</label>
-                <input
-                    className='form-control'
-                    type="text"
-                    placeholder='Item name....'
-                    value={itemName}
-                    onChange={onItemNameChange}
-                />
-            </div>
-            {toggle ? (
-
-                <div className="form-group ">
-                    <label
-                        htmlFor="amount"
-                        className='h5'>
-                        Amount
-                </label>
+            <div className="row">
+                <div className="form-group col-md-6">
+                    <label htmlFor="item-name" className='h5'>Item Name</label>
                     <input
                         className='form-control'
-                        type="number"
-                        placeholder='Income Amount....'
-                        value={income}
-                        onChange={onIncomeChange}
+                        type="text"
+                        placeholder='Item name....'
+                        value={itemName}
+                        onChange={onItemNameChange}
                     />
                 </div>
-            ) :
-                <div className="form-group ">
-                    <label
-                        htmlFor="amount"
-                        className='h5'>
-                        Amount
+                {toggle ? (
+
+                    <div className="form-group col-md-6">
+                        <label
+                            htmlFor="amount"
+                            className='h5'>
+                            Amount
+                </label>
+                        <input
+                            className='form-control'
+                            type="number"
+                            placeholder='Income Amount....'
+                            value={income}
+                            onChange={onIncomeChange}
+                        />
+                    </div>
+                ) :
+                    <div className="form-group col-md-6">
+                        <label
+                            htmlFor="amount"
+                            className='h5'>
+                            Amount
                     </label>
-                    <input
-                        className='form-control'
-                        type="number"
-                        placeholder='Expense  Amount....'
-                        value={expense}
-                        onChange={onExpenseChange}
-                    />
-                </div>}
-            <input type="submit" value="Add Transaction" className='btn btn-primary btn-block btn-lg' />
+                        <input
+                            className='form-control'
+                            type="number"
+                            placeholder='Expense  Amount....'
+                            value={expense}
+                            onChange={onExpenseChange}
+                        />
+                    </div>}
+            </div>
+            <input type="submit" value="Add Transaction" className='btn btn-primary btn-block w-50% btn-lg' />
         </form>
     )
 }
